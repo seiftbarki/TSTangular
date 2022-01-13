@@ -1,0 +1,157 @@
+<nav class="navbar navbar-dark bg-dark">
+<a class="navbar-brand" href="">Transport</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="/Home">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/Moyen">moyens</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/Contact">contact</a>
+      </li>
+      
+      <li class="nav-item" *ngIf="!display" >
+        <a class="nav-link" routerLink="/Home"  >Logout</a>
+      </li>
+      <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#Login"  *ngIf="display"  >Login</button>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" *ngIf="display">
+        Singup
+      </button>    </ul>
+  </div>
+</nav>
+
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Choisir votre type</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#SignUp" data-dismiss="modal" (click)="typea('/Abonne')">Abonnée</button>
+        <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#SignUp" data-dismiss="modal"  (click)="typea('Admin')" >Admin</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+<div class="modal fade" id="Login" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form>
+     
+    <div class="form-group">
+        <label for="inputEmail">Email</label>
+        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+    </div>
+    <div class="form-group">
+        <label for="inputPassword">Password</label>
+        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+    </div>
+    <div class="form-group">
+        <label class="form-check-label"><input type="checkbox"> Remember me</label>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary"  data-dismiss="modal" (click)="login()" routerLink="{{s}}">Login</button>
+      </div>
+    
+</form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<div class="modal fade" id="SignUp" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Signup</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label for="inputName">Votre type est</label>
+          <input type="text" class="form-control" id="inputName" value="{{type}}" readonly placeholder="Type" >
+        </div>
+      <div class="form-group">
+        <label for="inputName">Name</label>
+        <input type="text" class="form-control" id="inputName" placeholder="Name">
+    </div>
+    <div class="form-group">
+        <label for="inputCin">Cin</label>
+        <input type="number" class="form-control" id="inputCin" placeholder="Cin">
+    </div>
+      <div class="form-group">
+        <label for="inputEmail">Email</label>
+        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+    </div>
+    <div class="form-group">
+        <label for="inputTelephone">Telephone</label>
+        <input type="tel" class="form-control" id="inputTelephone" placeholder="Telephone" value="+216" maxlength="12" >
+    </div>
+    <select class="form-control">
+     <option>Tunisie</option>
+     <option>France</option>
+     <option>Algerie</option>
+    </select>
+    <div class="form-group">
+        <label for="inputPassword">Password</label>
+        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+    </div>
+    <div class="form-group">
+        <label for="inputPassword">Confirm Password</label>
+        <input type="password" class="form-control" id="inputPassword" placeholder="Confirm Password">
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="login()" routerLink="{{s}}">SignUp</button>
+      </div>
+    
+</form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
+<section class="hero">
+<router-outlet></router-outlet>
+
+</section>

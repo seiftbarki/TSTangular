@@ -1,0 +1,11 @@
+.hero
+{
+    min-height: 100vh;
+    background-image: url(../assets/chaima.jpg);
+    background-size: cover;
+    background-position: bottom;
+    font-family: sans-serif;
+
+
+
+}
