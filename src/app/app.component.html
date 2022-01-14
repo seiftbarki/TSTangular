@@ -14,12 +14,12 @@
       <li class="nav-item">
         <a class="nav-link" href="/Contact">contact</a>
       </li>
-      
-      <li class="nav-item" *ngIf="!display" >
+
+      <li class="nav-item"  >
         <a class="nav-link" routerLink="/Home"  >Logout</a>
       </li>
-      <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#Login"  *ngIf="display"  >Login</button>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" *ngIf="display">
+      <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#Login"  >Login</button>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
         Singup
       </button>    </ul>
   </div>
@@ -40,7 +40,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-      
+
       <div class="modal-footer">
         <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#SignUp" data-dismiss="modal" (click)="typea('/Abonne')">Abonnée</button>
         <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#SignUp" data-dismiss="modal"  (click)="typea('Admin')" >Admin</button>
@@ -66,15 +66,15 @@
         </button>
       </div>
       <div class="modal-body">
-      <form>
-     
+      <form [formGroup]="login">
+
     <div class="form-group">
         <label for="inputEmail">Email</label>
-        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+        <input type="email" class="form-control" formControlName="email" id="inputEmail" placeholder="Email">
     </div>
     <div class="form-group">
         <label for="inputPassword">Password</label>
-        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+        <input type="password" class="form-control" formControlName="password" id="inputPassword" placeholder="Password">
     </div>
     <div class="form-group">
         <label class="form-check-label"><input type="checkbox"> Remember me</label>
@@ -83,7 +83,7 @@
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary"  data-dismiss="modal" (click)="login()" routerLink="{{s}}">Login</button>
       </div>
-    
+
 </form>
       </div>
     </div>
@@ -105,26 +105,26 @@
         </button>
       </div>
       <div class="modal-body">
-      <form>
+      <form [formGroup]="admin">
         <div class="form-group">
           <label for="inputName">Votre type est</label>
           <input type="text" class="form-control" id="inputName" value="{{type}}" readonly placeholder="Type" >
         </div>
       <div class="form-group">
         <label for="inputName">Name</label>
-        <input type="text" class="form-control" id="inputName" placeholder="Name">
+        <input type="text" class="form-control" formControlName="Name" id="inputName" placeholder="Name">
     </div>
     <div class="form-group">
         <label for="inputCin">Cin</label>
-        <input type="number" class="form-control" id="inputCin" placeholder="Cin">
+        <input type="number" class="form-control" formControlName="cin" id="inputCin" placeholder="Cin">
     </div>
       <div class="form-group">
         <label for="inputEmail">Email</label>
-        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+        <input type="email" class="form-control" formControlName="email" id="inputEmail" placeholder="Email">
     </div>
     <div class="form-group">
         <label for="inputTelephone">Telephone</label>
-        <input type="tel" class="form-control" id="inputTelephone" placeholder="Telephone" value="+216" maxlength="12" >
+        <input type="tel" class="form-control" formControlName="telephone" id="inputTelephone" placeholder="Telephone" value="+216" maxlength="12" >
     </div>
     <select class="form-control">
      <option>Tunisie</option>
@@ -133,17 +133,17 @@
     </select>
     <div class="form-group">
         <label for="inputPassword">Password</label>
-        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+        <input type="password" class="form-control" formControlName="password" id="inputPassword" placeholder="Password">
     </div>
     <div class="form-group">
         <label for="inputPassword">Confirm Password</label>
-        <input type="password" class="form-control" id="inputPassword" placeholder="Confirm Password">
+        <input type="password" class="form-control" formControlName="confirm_password" id="inputPassword" placeholder="Confirm Password">
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="login()" routerLink="{{s}}">SignUp</button>
       </div>
-    
+
 </form>
       </div>
     </div>

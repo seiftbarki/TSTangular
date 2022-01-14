@@ -9,7 +9,9 @@ export class AbonneComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(
+
+  ){}
+
 
 }
